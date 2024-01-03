@@ -1,4 +1,4 @@
-package org.jwix777.easysetup_screamingbedwars;
+package org.jwix777.ArenaSetupAssistant.gui;
 
 import com.samjakob.spigui.buttons.SGButton;
 import com.samjakob.spigui.item.ItemBuilder;
@@ -8,12 +8,13 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.jwix777.ArenaSetupAssistant.ArenaSetupAssistant;
 
 public class SetupGUI implements Listener {
     public void openMyAwesomeMenu(Player player) {
 
         // Create a GUI with 3 rows (27 slots)
-        SGMenu myAwesomeMenu = EasySetup_ScreamingBedwars.spiGUI.create("&cBedwars Control Panel", 3);
+        SGMenu myAwesomeMenu = ArenaSetupAssistant.spiGUI.create("&cBedwars Control Panel", 3);
 
         // Create a button
         SGButton myAwesomeButton = new SGButton(

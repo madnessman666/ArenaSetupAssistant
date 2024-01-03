@@ -1,8 +1,9 @@
-name: EasySetup_ScreamingBedwars
+name: ArenaSetupAssistant
 version: '${project.version}'
-main: org.jwix777.easysetup_screamingbedwars.EasySetup_ScreamingBedwars
+main: org.jwix777.ArenaSetupAssistant.ArenaSetupAssistant
 commands:
-  easysetup:
-    description: Nothing
-    usage: /<command>
-    permission: easysetup.use
+  asa:
+    description: Opens gui
+    usage: "/<command>"
+    aliases:
+      - arenasetupassistant

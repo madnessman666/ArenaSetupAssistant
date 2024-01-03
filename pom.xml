@@ -5,11 +5,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.jwix777</groupId>
-  <artifactId>EasySetup_ScreamingBedwars</artifactId>
+	<artifactId>ArenaSetupAssistant</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>EasySetup_ScreamingBedwars</name>
+	<name>ArenaSetupAssistant</name>
 
   <properties>
     <java.version>1.8</java.version>

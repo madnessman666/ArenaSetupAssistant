@@ -1,4 +1,4 @@
-package org.jwix777.easysetup_screamingbedwars;
+package org.jwix777.ArenaSetupAssistant.gui;
 
 import com.samjakob.spigui.buttons.SGButton;
 import com.samjakob.spigui.item.ItemBuilder;
@@ -7,6 +7,7 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.jwix777.ArenaSetupAssistant.ArenaSetupAssistant;
 import org.screamingsandals.bedwars.api.BedwarsAPI;
 import org.screamingsandals.bedwars.api.game.Game;
 import org.screamingsandals.bedwars.api.game.GameStatus;
@@ -14,7 +15,7 @@ import org.screamingsandals.bedwars.api.game.GameStatus;
 public class ArenaGUI implements Listener {
 
     public void open(Player player, String arenaName){
-        SGMenu Menu = EasySetup_ScreamingBedwars.spiGUI.create("Arena: ".concat(arenaName), 3);
+        SGMenu Menu = ArenaSetupAssistant.spiGUI.create("Arena: ".concat(arenaName), 3);
         Material toggleMaterial;
         String toggleName;
         Game game = BedwarsAPI.getInstance().getGameByName(arenaName);

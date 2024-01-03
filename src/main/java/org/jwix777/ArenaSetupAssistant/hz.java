@@ -1,4 +1,4 @@
-package org.jwix777.easysetup_screamingbedwars;
+package org.jwix777.ArenaSetupAssistant;
 
 import me.filoghost.holographicdisplays.api.hologram.Hologram;
 import me.filoghost.holographicdisplays.api.hologram.VisibilitySettings;
@@ -16,7 +16,7 @@ public class hz implements  Listener {
     public void onArenaDisable(BedWarsGameDisabledEvent e){
         Bukkit.getLogger().info("Fired");
         Game game = e.getGame();
-        EasySetup_ScreamingBedwars.holos.forEach((Hologram holo) -> {
+        ArenaSetupAssistant.holos.forEach((Hologram holo) -> {
             if(Objects.equals(game.getGameWorld().getName(), holo.getPosition().getWorldName())) {
                 holo.getVisibilitySettings().setGlobalVisibility(VisibilitySettings.Visibility.VISIBLE);
             }
@@ -25,7 +25,7 @@ public class hz implements  Listener {
     @EventHandler
     public void onArenaEnabled(BedWarsGameEnabledEvent e) {
         Game game = e.getGame();
-        EasySetup_ScreamingBedwars.holos.forEach((Hologram holo) -> {
+        ArenaSetupAssistant.holos.forEach((Hologram holo) -> {
                 if(Objects.equals(game.getGameWorld().getName(), holo.getPosition().getWorldName())) {
                     holo.getVisibilitySettings().setGlobalVisibility(VisibilitySettings.Visibility.HIDDEN);
                 }

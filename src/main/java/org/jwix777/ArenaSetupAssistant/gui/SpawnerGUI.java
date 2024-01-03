@@ -1,4 +1,4 @@
-package org.jwix777.easysetup_screamingbedwars;
+package org.jwix777.ArenaSetupAssistant.gui;
 
 import com.samjakob.spigui.buttons.SGButton;
 import com.samjakob.spigui.item.ItemBuilder;
@@ -10,8 +10,8 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.jwix777.ArenaSetupAssistant.ArenaSetupAssistant;
 import org.screamingsandals.bedwars.api.BedwarsAPI;
-import org.screamingsandals.bedwars.api.game.Game;
 import org.screamingsandals.bedwars.api.game.ItemSpawnerType;
 
 public class SpawnerGUI implements Listener {
@@ -21,9 +21,8 @@ public class SpawnerGUI implements Listener {
 
 
     public void open(Player player, String arenaName){
-        HolographicDisplaysAPI holoapi = EasySetup_ScreamingBedwars.holoapi;
-        SGMenu Menu = EasySetup_ScreamingBedwars.spiGUI.create("Arena: ".concat(arenaName).concat(" spawners"), 3);
-        Game game = BedwarsAPI.getInstance().getGameByName(arenaName);
+        HolographicDisplaysAPI holoapi = ArenaSetupAssistant.holoapi;
+        SGMenu Menu = ArenaSetupAssistant.spiGUI.create("Arena: ".concat(arenaName).concat(" spawners"), 3);
         BedwarsAPI.getInstance().getItemSpawnerTypes().forEach((ItemSpawnerType spawner) -> {
             SGButton butt = new SGButton(
                     new ItemBuilder(spawner.getMaterial()).name(spawner.getItemName()).build()
@@ -33,7 +32,7 @@ public class SpawnerGUI implements Listener {
                 Bukkit.getPlayer(event.getWhoClicked().getName()).performCommand("bw admin " + arenaName + " spawner add " + spawner.getConfigKey());
                 Hologram holo = holoapi.createHologram(player.getLocation());
                 holo.getLines().appendText(spawner.getItemName());
-                EasySetup_ScreamingBedwars.holos.add(holo);
+                ArenaSetupAssistant.holos.add(holo);
             });
             Menu.addButton(butt);
         });
