@@ -39,9 +39,7 @@ public class SpawnerGUI implements Listener {
         });
         SGButton back = new SGButton(
                 new ItemBuilder(Material.BARRIER).name("Back").build()
-        ).withListener((InventoryClickEvent event) -> {
-            new ArenaGUI().open(player, arenaName);
-        });
+        ).withListener((InventoryClickEvent event) -> new ArenaGUI().open(player, arenaName));
         Menu.addButton(back);
         player.openInventory(Menu.getInventory());
 
