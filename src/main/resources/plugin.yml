@@ -1,0 +1,8 @@
+name: EasySetup_ScreamingBedwars
+version: '${project.version}'
+main: org.jwix777.easysetup_screamingbedwars.EasySetup_ScreamingBedwars
+commands:
+  easysetup:
+    description: Nothing
+    usage: /<command>
+    permission: easysetup.use
