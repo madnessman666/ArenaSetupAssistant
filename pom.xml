@@ -93,7 +93,7 @@
 	  <dependency>
 		  <groupId>org.screamingsandals.bedwars</groupId>
 		  <artifactId>BedWars-API</artifactId>
-		  <version>0.2.32-SNAPSHOT</version>
+		  <version>0.2.30</version>
 		  <scope>provided</scope>
 	  </dependency>
   </dependencies>

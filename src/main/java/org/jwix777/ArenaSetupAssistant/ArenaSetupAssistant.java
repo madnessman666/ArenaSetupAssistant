@@ -9,6 +9,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jwix777.ArenaSetupAssistant.gui.EasySetupGUI;
+import org.jwix777.ArenaSetupAssistant.listeners.CommandListener;
 import org.jwix777.ArenaSetupAssistant.utils.BlockUtils;
 import org.screamingsandals.bedwars.api.BedwarsAPI;
 import org.screamingsandals.bedwars.api.Team;
@@ -25,8 +26,10 @@ public final class ArenaSetupAssistant extends JavaPlugin implements Listener {
     public static SpiGUI spiGUI;
     public static HolographicDisplaysAPI holoapi;
 
+    public static Logger logger = Bukkit.getLogger();
     public static List<Hologram> holos =  new ArrayList<>();
 
+    public static BedwarsAPI api;
 
     @Override
     public void onEnable() {
@@ -45,8 +48,15 @@ public final class ArenaSetupAssistant extends JavaPlugin implements Listener {
             this.setEnabled(false);
             return;
         }
-        BedwarsAPI api = BedwarsAPI.getInstance();
+        api = BedwarsAPI.getInstance();
+        /*
+         * Registering events.
+         * CommandPreprocess - command preprocessor that detects changes in arena state
+         * */
         Bukkit.getServer().getPluginManager().registerEvents(new hz(), this);
+        Bukkit.getServer().getPluginManager().registerEvents(new CommandListener(), this);
+
+
         while (Objects.equals(api, ObjectUtils.NULL)) {
             api = BedwarsAPI.getInstance();
             try {
@@ -57,8 +67,8 @@ public final class ArenaSetupAssistant extends JavaPlugin implements Listener {
         }
         holoapi = HolographicDisplaysAPI.get(this);
         spiGUI = new SpiGUI(this);
-        for(Game game : api.getGames()) {
 
+        for(Game game : api.getGames()) {
             for (ItemSpawner spawner : game.getItemSpawners()) {
                 Hologram hologram = holoapi.createHologram(BlockUtils.locToPos(spawner.getLocation()).add(0.0D, 1.0D, 0.0D));
                 hologram.getLines().appendText(spawner.getItemSpawnerType().getItemName());

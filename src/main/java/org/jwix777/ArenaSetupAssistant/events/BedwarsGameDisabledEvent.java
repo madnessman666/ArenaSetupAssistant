@@ -17,9 +17,12 @@ public class BedwarsGameDisabledEvent extends Event {
     }
 
 
-    @Override
-    public HandlerList getHandlers() {
-        return BedwarsGameDisabledEvent.handlers;
+    public static HandlerList getHandlerList() {
+        return handlers;
     }
 
+    @Override
+    public HandlerList getHandlers() {
+        return handlers;
+    }
 }

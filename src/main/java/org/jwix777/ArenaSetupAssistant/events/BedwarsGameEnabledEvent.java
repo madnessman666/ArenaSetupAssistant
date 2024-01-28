@@ -16,9 +16,18 @@ public class BedwarsGameEnabledEvent extends Event {
         return game;
     }
 
+
+    /**
+     * Thing for spigot
+     *
+     * @return HandlerList
+     */
+    public static HandlerList getHandlerList() {
+        return handlers;
+    }
+
     @Override
     public HandlerList getHandlers() {
         return handlers;
     }
-
 }
